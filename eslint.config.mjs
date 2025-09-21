@@ -1,16 +1,32 @@
+// eslint.config.mjs
 import js from "@eslint/js";
 import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import pluginPrettier from "eslint-plugin-prettier";
-import configPrettier from "eslint-config-prettier";
-import pluginCypress from "eslint-plugin-cypress";
-import { defineConfig } from "eslint/config";
+import cypress from "eslint-plugin-cypress";
 
+export default [
+  js.configs.recommended,
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,jsx}"], plugins: { js, prettier: pluginPrettier, cypress: pluginCypress}, extends: ["js/recommended", "prettier","plugin:prettier/recommended"], rules:{"prettier/prettier": "error", "cypress/no-unnecessary-waiting": "warn"}, },
-  { files: ["**/*.{js,mjs,cjs,jsx}"], languageOptions: { globals: globals.browser } },
   {
-    ...pluginReact.configs.flat.recommended,
+    files: ["cypress/**/*.ts", "cypress/**/*.js"],
+    languageOptions: {
+      ecmaVersion: 2021,
+      sourceType: "module",
+      globals: {
+        ...globals.node,     // for Node.js stuff
+        ...globals.mocha,    // adds describe, it, before, after
+        ...globals.browser,  // adds window, document, etc.
+        cy: true,            // explicitly add Cypress "cy"
+        Cypress: true,       // explicitly add Cypress "Cypress"
+      },
+    },
+    plugins: {
+      cypress,
+    },
+    rules: {
+      "cypress/no-assigning-return-values": "error",
+      "cypress/no-unnecessary-waiting": "warn",
+      "cypress/no-force": "warn",
+      "cypress/no-async-tests": "error",
+    },
   },
-]);
+];
