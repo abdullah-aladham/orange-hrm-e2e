@@ -1,5 +1,5 @@
 import { method } from "cypress/types/bluebird";
-import 
+// import 
 import LoginPage from '../../../pages/LoginPage';
 const loginpageobj:LoginPage =new LoginPage();
 // import {baseUrl} from '../../cypress.config.ts;
