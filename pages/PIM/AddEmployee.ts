@@ -9,8 +9,16 @@ elements = {
     save:()=>cy.get('button').contains("Save"),
     cancel:()=>cy.get('button').contains("Cancel")
 }
-createNewUser(){
+AddNewEmployee(firstname,lastname,username,password,confirmpass){
+this.elements.firstname().type(firstname);
+this.elements.lastname().type(lastname);
+this.elements.createlogindetails().click();
+this.elements.username().type(username);
+this.elements.password().type(password);
+this.elements.confirmpassword().type(confirmpass);
+this.elements.save().click();
 
 }
+
 }   
 export default AddEmployee;
