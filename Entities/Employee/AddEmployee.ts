@@ -9,6 +9,10 @@ elements = {
     save:()=>cy.get('button').contains("Save"),
     cancel:()=>cy.get('button').contains("Cancel")
 }
+visitaddemployeepage(){
+    cy.contains('Dashboard').should('be.visible');
+    cy.contains('PIM').click();
+}
 AddNewEmployee(firstname,lastname,username,password,confirmpass){
 this.elements.firstname().type(firstname);
 this.elements.lastname().type(lastname);

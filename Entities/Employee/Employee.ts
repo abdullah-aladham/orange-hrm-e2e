@@ -1,5 +1,5 @@
-import { faker } from "@faker-js/faker/.";
-class User{
+// import { faker } from "@faker-js/faker/.";
+class Employee{
     firstname;
    lastName;
  username;
@@ -15,5 +15,6 @@ this.confirmpass=confirmpass;
 }
 
 
+
 }
-export default User;
+export default Employee;

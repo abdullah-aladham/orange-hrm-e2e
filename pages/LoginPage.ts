@@ -13,6 +13,7 @@ login(username,password){
     cy.url().should('contain','dashboard/index');
 
 }
+
 }
 
 
