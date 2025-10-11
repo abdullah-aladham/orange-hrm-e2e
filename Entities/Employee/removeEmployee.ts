@@ -1,12 +1,17 @@
 class removeEmployee{
 
+    elements={
+    EmpIdInput:    ()=> cy.get("oxd-input--active").last(),
+    EmpNameInput:  ()=>cy.get('input').filter('placeholder="Type for hints..."').first(),
+        deleteBtn:()=>cy.get('oxd-icon-button oxd-table-cell-action-space').first(),
+        }
     removeEmpById(id){
-       cy.get("oxd-input--active").last().type(id);
-    cy.get('oxd-icon-button oxd-table-cell-action-space').first().click();
+       this.elements.EmpIdInput().type(id);
+        this.elements.deleteBtn().click();
     }
     removeEmpByName(Name){
-        cy.get('input').filter('placeholder="Type for hints..."').first().type(Name);
-    cy.get('oxd-icon-button oxd-table-cell-action-space').first().click();
+       this.elements.EmpNameInput().type(Name);
+        this.elements.deleteBtn().click();
 
     }
 }
