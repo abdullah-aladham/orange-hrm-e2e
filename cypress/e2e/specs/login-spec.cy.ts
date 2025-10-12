@@ -5,7 +5,7 @@ import {faker} from "@faker-js/faker";
 // import { first, last } from "cypress/types/lodash";
 import Employee from 'Entities/Employee/Employee';
 import AddEmployee from "Entities/Employee/AddEmployee";
-import SearchForEmployee from "Entities/Employee/SearchForEmployee";
+// import SearchForEmployee from "../Employee_TestSuite/SearchForEmployee.cy.ts";
 import PIMConfig from 'pages/PIM/PIM-Configuration';
 // import AddEmployee from "Entities/Employee/AddEmployee";
 // import {baseUrl} from '../../cypress.config.ts;
@@ -21,9 +21,9 @@ let lastName=faker.person.lastName();
 let username=faker.internet.username();
 let password=faker.internet.password();
 let confirmpass=password;
-const employee:Employee =new Employee(firstname,lastName,username,password,confirmpass);
-const EmployeeAddingobj:AddEmployee=new AddEmployee();
-const employee_searchobj:SearchForEmployee=new SearchForEmployee();
+// const employee:Employee =new Employee(id,firstname,lastName,username,password,confirmpass);
+// const EmployeeAddingobj:AddEmployee=new AddEmployee();
+// const employee_searchobj:SearchForEmployee=new SearchForEmployee();
 const PIMobj:PIMConfig =new PIMConfig();
 beforeEach(() => {
 
@@ -32,12 +32,13 @@ beforeEach(() => {
 })
 
   it.only('should login successfully with valid credentials', () => {
-cy.fixture('valid_users.json').then((adminuser) => {
- loginpageobj.login(adminuser[0].username,adminuser[0].password);
-})
+// cy.fixture('valid_users.json').then((adminuser) => {
+//  loginpageobj.login(adminuser[0].username,adminuser[0].password);
+// })
+cy.login("Admin","admin123");
 PIMobj.navigatetoPIM();
-EmployeeAddingobj.AddNewEmployee(employee.firstname,employee.lastName,employee.username,employee.password,employee.confirmpass);
-employee_searchobj.searchForEmployeeByName(employee.firstname);
+// EmployeeAddingobj.AddNewEmployee(employee.firstname,employee.lastName,employee.username,employee.password,employee.confirmpass);
+// employee_searchobj.searchForEmployeeByName(employee.firstname);
    
     
     // cy.contains('Dashboard').should('be.visible');
@@ -83,3 +84,4 @@ employee_searchobj.searchForEmployeeByName(employee.firstname);
      cy.contains("Invalid credentials").should('be.visible');
     });
 });
+

@@ -2,11 +2,10 @@ import AddEmployee from "Entities/Employee/AddEmployee";
 import Employee from "Entities/Employee/Employee";
 import LoginPage from "pages/LoginPage"
 import Mainpage from "pages/Mainpage.pom";
-import {baseUrl} from "./../../../cypress.config.ts"
 import { faker } from "@faker-js/faker";
 
 beforeEach(()=>{
-    cy.visit(baseUrl);
+    cy.visit('/');
 })
 let id=faker.number.int();
 let firstname=faker.person.firstName();
@@ -29,4 +28,36 @@ addingEmployeeObj.AddNewEmployee(employee.firstname,employee.lastName,employee.u
     it('Fails to add new Employee due to invalid data',()=>{
         
     })
+    it.only('adds new employee wit api',()=>{
+        cy.login("Admin","admin123");
+        const navigateobj:Mainpage=new Mainpage();
+const addingEmployeeObj:AddEmployee=new AddEmployee();
+navigateobj.visitPIMpage();
+
+        cy.api(
+            "POST",
+            "/web/index.php/api/v2/pim/employees",
+            {
+    "firstName": "hehe",
+    "middleName": "",
+    "lastName": "boi",
+    "empPicture": null,
+    "employeeId": null
+}
+        ).then((respose)=>{expect(respose.status).to.eq(200);
+            const empnumber=respose.body.data?.empNumber;
+            console.log('Employee Number:',empnumber);
+            cy.api(
+            "DELETE",
+            "/web/index.php/api/v2/pim/employees",
+            {
+    "ids": [
+        empnumber
+    ]
+        })
+    
+}
+        )
+    })
+   
 })
