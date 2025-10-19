@@ -5,7 +5,7 @@ import {faker} from "@faker-js/faker";
 // import { first, last } from "cypress/types/lodash";
 import Employee from 'Entities/Employee/Employee';
 import AddEmployee from "Entities/Employee/AddEmployee";
-import SearchForEmployee from "Entities/Employee/SearchForEmployee";
+import SearchForEmployee from "pages/PIM/SearchForEmployee";
 import PIMConfig from 'pages/PIM/PIM-Configuration';
 // import AddEmployee from "Entities/Employee/AddEmployee";
 // import {baseUrl} from '../../cypress.config.ts;
@@ -15,13 +15,13 @@ import PIMConfig from 'pages/PIM/PIM-Configuration';
   const loginpageobj:LoginPage =new LoginPage();
 
 describe('OrangeHRM Login Tests', () => {
-  
+  let id= faker.number.int();
 let  firstname=faker.person.firstName();
 let lastName=faker.person.lastName();
 let username=faker.internet.username();
 let password=faker.internet.password();
 let confirmpass=password;
-const employee:Employee =new Employee(firstname,lastName,username,password,confirmpass);
+const employee:Employee =new Employee(id,firstname,lastName,username,password,confirmpass);
 const EmployeeAddingobj:AddEmployee=new AddEmployee();
 const employee_searchobj:SearchForEmployee=new SearchForEmployee();
 const PIMobj:PIMConfig =new PIMConfig();
