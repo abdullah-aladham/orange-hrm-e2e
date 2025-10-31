@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import "cypress-plugin-api"
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -11,7 +12,12 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('login', (username, password) => { 
+    cy.get("input[name='username'").type(username);
+    cy.get('input[placeholder="Password"]').type(password);
+    cy.get('button[type="submit"]').click();
+    cy.contains('Dashboard').should('be.visible');
+ })
 //
 //
 // -- This is a child command --

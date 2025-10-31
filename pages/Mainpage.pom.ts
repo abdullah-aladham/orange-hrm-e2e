@@ -17,6 +17,9 @@ Buzz: ()=>cy.contains("Buzz"),
 visitPIMpage(){
     this.elements.PIM().click();
 }
+NavigateToBuzz(){
+    this.elements.Buzz().click();
+}
 
 }
 export default Mainpage;

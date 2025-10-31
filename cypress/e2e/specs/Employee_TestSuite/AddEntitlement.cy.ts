@@ -12,6 +12,7 @@ describe('Entitlements TestSuite',()=>{
        const entitlementspage:Entitlements=new Entitlements();
 
     it('addsEntitlements by admin',()=>{
-         entitlementspage
+         entitlementspage.navigateToAddEntitlement();
+         
     })
 })
