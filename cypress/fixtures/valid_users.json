@@ -6,6 +6,15 @@
     {
         "username": "Abdullah",
         "password":"1234567d"
-    }
+    },
+    {
+        "firstname":"hehe",
+        "lastname":"boi",
+        "username":"heheboi",
+        "password":"H3lloboi1!",
+        "confpass":"H3lloboi1!",
+        "newpass":"H3lpMe112!",
+        "confirmnew":"H3lpMe112!"
+}
     
 ]

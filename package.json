@@ -8,10 +8,9 @@
     "clean": "rimraf cypress/videos cypress/screenshots",
     "lint": "eslint \"cypress/**/*.ts\" --fix",
     "lint:check": "eslint \"cypress/**/*.ts\"",
-    "cypress:run:electron" : "cypress run --browser electron",
+    "cypress:run:electron": "cypress run --browser electron",
     "cypress:run:chrome": "cypress run --browser electron",
-    "cypress:open:electron" : "cypress open --browser electron"
-
+    "cypress:open:electron": "cypress open --browser electron"
   },
   "author": "Malik.Mlitat",
   "license": "ISC",
@@ -22,11 +21,8 @@
     "@shelex/cypress-allure-plugin": "^2.41.1",
     "cypress": "^14.3.3",
     "cypress-cucumber-preprocessor": "^4.3.1",
-<<<<<<< HEAD
-    "cypress-repeat": "^2.3.10",
-=======
     "cypress-plugin-api": "^2.11.2",
->>>>>>> 3b447d2c8ff2a5f8718d11cc6bf66c2d0784c22b
+    "cypress-repeat": "^2.3.10",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-cypress": "^4.3.0",

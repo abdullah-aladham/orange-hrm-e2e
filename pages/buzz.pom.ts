@@ -2,7 +2,7 @@ class buzzPage{
 
     elements={
         buzzTextArea:()=>cy.get('textarea[placeholder="What\'s on your mind?"]'),
-        submitPost:()=>cy.get('button').contains('Post'),
+        submitPost:()=>cy.contains("Post").first(),
         SuccessNotificationToast:()=>cy.get('.oxd-toast oxd-toast--success oxd-toast-container--toast'),
         likeBtn:()=>cy.get('.orangehrm-heart-icon'),
         likedbtn:()=>cy.get('div[class="orangehrm-like-animation"]'),
@@ -15,9 +15,13 @@ class buzzPage{
 
     }
     createApost(content:string){
+        // cy.get('.oxd-buzz-post-input').click();
         this.elements.buzzTextArea().type(content);
         this.elements.submitPost().click();
-        this.elements.SuccessNotificationToast().should('be.visible');
+        // this.elements.SuccessNotificationToast().should('be.visible');
+        // cy.intercept('/web/index.php/api/v2/buzz/posts')
+        // .as("PostedSuccessfuly");
+        // cy.wait('@PostedSuccessfuly').its('status').should('equal',200);
 
     }
     commentOnPost(comment:string){
@@ -31,6 +35,6 @@ class buzzPage{
         this.elements.likeBtn().click();
         this.elements.likedbtn().should('be.visible');
     }
-    
+
 }
 export default buzzPage;

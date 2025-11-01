@@ -1,19 +1,31 @@
 import AddEmployee from "Entities/Employee/AddEmployee";
-import AddEmployee from "Entities/Employee/AddEmployee";
-import LoginPage from "pages/LoginPage";
+import changePassword from "pages/changePassword.pom";
+import Mainpage from "pages/Mainpage.pom";
 
-describe('Employee Change password Test suite',()=>{
-   beforeEach(()=>{
-    
-    // const loginobj:LoginPage =new LoginPage();
-    cy.visit('/');
-   cy.login("Admin","admin123");
-const addEmployeeObj:AddEmployee=new AddEmployee();
+describe('employee changes password',()=>{
+     const mainpageobj:Mainpage=new Mainpage();
+        const addempobj:AddEmployee=new AddEmployee();
+        const empChangepass:changePassword=new changePassword();
+    before(()=>{
+       
+        cy.visit('/');
+        cy.login('Admin','admin123');
+        mainpageobj.visitPIMpage();
+    cy.fixture('valid_users.json').then((newUser) => {
+  addempobj.AddNewEmployee(newUser[2].firstname,newUser[2].lastname,newUser[2].username,newUser[2].password,newUser[2].confpass);
+})
+        // cy.fixture('valid_users').then()
+        // addempobj.AddNewEmployee()
 
-addEmployeeObj.AddNewEmployee("hehe","boi","heheboi",'H3lloEveryone1!','H3lloEveryone1!');
 
-   })
-    it('changes password successfuly',()=>{
+    })
+    it('changes employee password',()=>{
+        cy.fixture('valid_users.json').then((newUser) => {
+            cy.login(newUser[2].username,newUser[2].password);
+             mainpageobj.navigateToChangePasswordPage();
+        empChangepass.changePassword(newUser[2].password,newUser[2].newpass,newUser[2].confirmnew);
+        }) 
+       
 
     })
 })
