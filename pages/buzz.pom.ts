@@ -35,6 +35,7 @@ class buzzPage{
     likePost(postData:string){
         cy.get('.orangehrm-buzz').filter(`:contains("${postData}")`).as('focusedPost');
         cy.get('@focusedPost').find('.orangehrm-heart-icon').click();
+        
         // cy.get('.orangehrm-buzz').filter('.orangehrm-heart-icon').click();
         // this.elements.likedbtn().should('be.visible');
     }

@@ -3,12 +3,14 @@ import LoginPage from "pages/LoginPage";
 import Mainpage from "pages/Mainpage.pom";
 import * as fs from "fs";
 import * as path from "path";
+import {faker} from '@faker-js/faker';
 const buzzes =require('../../fixtures/buzz.json')
 describe('Buzz Test suite',()=>{
 beforeEach(()=>{
     cy.visit('/');
     cy.login("Admin","admin123");
 })
+const postdata=faker.lorem.sentences();
 
 const buzzpageobj:buzzPage=new buzzPage();
 const adminpageobj:Mainpage=new Mainpage();
@@ -26,8 +28,8 @@ it.only('gives a like to a post',()=>{
     adminpageobj.NavigateToBuzz();
 
   // cy.fixture('buzz.json').then((post)=>{
-         buzzpageobj.createApost("wewwwwdddwwwwwwwwwwwwwwwwwwww");
- buzzpageobj.likePost("wewwwwdddwwwwwwwwwwwwwwwwwwww");
+         buzzpageobj.createApost(postdata);
+ buzzpageobj.likePost(postdata);
   // })
  
 })
