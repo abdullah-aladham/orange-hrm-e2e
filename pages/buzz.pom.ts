@@ -12,6 +12,7 @@ class buzzPage{
         sharePhotos:()=>cy.get('button').contains('Share Photos'),
         shareVideos:()=>cy.get('button').contains('Share Video'),
         moreSettings:()=>cy.get('.oxd-icon bi-three-dots'),
+        posts:()=>cy.get('.orangehrm-buzz')
 
     }
     createApost(content:string){
@@ -31,9 +32,11 @@ class buzzPage{
 
 
     }
-    likePost(){
-        this.elements.likeBtn().click();
-        this.elements.likedbtn().should('be.visible');
+    likePost(postData:string){
+        cy.get('.orangehrm-buzz').filter(`:contains("${postData}")`).as('focusedPost');
+        cy.get('@focusedPost').find('.orangehrm-heart-icon').click();
+        // cy.get('.orangehrm-buzz').filter('.orangehrm-heart-icon').click();
+        // this.elements.likedbtn().should('be.visible');
     }
 
 }
