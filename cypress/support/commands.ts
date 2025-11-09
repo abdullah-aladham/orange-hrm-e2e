@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import "cypress-plugin-api"
+import '@testing-library/cypress/add-commands'
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -13,10 +14,21 @@ import "cypress-plugin-api"
 //
 // -- This is a parent command --
 Cypress.Commands.add('login', (username, password) => { 
-    cy.get("input[name='username'").type(username);
-    cy.get('input[placeholder="Password"]').type(password);
-    cy.get('button[type="submit"]').click();
-    cy.contains('Dashboard').should('be.visible');
+cy.findByPlaceholderText("Username").type(username)
+    cy.findByPlaceholderText("Password").type(password)
+    cy.findByRole("button",{name:'Login'}).click();
+    cy.url().should('contain','/web/index.php/dashboard/index')
+    // cy.findByText('Dashboard');
+    // cy.get("input[name='username'").type(username);
+    // cy.get('input[placeholder="Password"]').type(password);
+    // cy.get('button[type="submit"]').click();
+    // cy.contains('Dashboard').should('be.visible');
+ })
+
+ Cypress.Commands.add('verifyLink',(text:string,url)=>{
+    cy.findByText(text).should('have.attr','href',url);
+    
+
  })
 //
 //

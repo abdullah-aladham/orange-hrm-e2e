@@ -5,11 +5,11 @@ import {faker} from "@faker-js/faker";
 // import { first, last } from "cypress/types/lodash";
 import Employee from 'Entities/Employee/Employee';
 import AddEmployee from "Entities/Employee/AddEmployee";
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import SearchForEmployee from "pages/PIM/SearchForEmployee";
-=======
+// =======
 // import SearchForEmployee from "../Employee_TestSuite/SearchForEmployee.cy.ts";
->>>>>>> 3b447d2c8ff2a5f8718d11cc6bf66c2d0784c22b
+// >>>>>>> 3b447d2c8ff2a5f8718d11cc6bf66c2d0784c22b
 import PIMConfig from 'pages/PIM/PIM-Configuration';
 // import AddEmployee from "Entities/Employee/AddEmployee";
 // import {baseUrl} from '../../cypress.config.ts;
@@ -25,15 +25,15 @@ let lastName=faker.person.lastName();
 let username=faker.internet.username();
 let password=faker.internet.password();
 let confirmpass=password;
-<<<<<<< HEAD
+// <<<<<<< HEAD
 const employee:Employee =new Employee(id,firstname,lastName,username,password,confirmpass);
 const EmployeeAddingobj:AddEmployee=new AddEmployee();
 const employee_searchobj:SearchForEmployee=new SearchForEmployee();
-=======
+// =======
 // const employee:Employee =new Employee(id,firstname,lastName,username,password,confirmpass);
 // const EmployeeAddingobj:AddEmployee=new AddEmployee();
 // const employee_searchobj:SearchForEmployee=new SearchForEmployee();
->>>>>>> 3b447d2c8ff2a5f8718d11cc6bf66c2d0784c22b
+// >>>>>>> 3b447d2c8ff2a5f8718d11cc6bf66c2d0784c22b
 const PIMobj:PIMConfig =new PIMConfig();
 beforeEach(() => {
 
@@ -46,7 +46,7 @@ beforeEach(() => {
 //  loginpageobj.login(adminuser[0].username,adminuser[0].password);
 // })
 cy.login("Admin","admin123");
-PIMobj.navigatetoPIM();
+// PIMobj.navigatetoPIM();
 // EmployeeAddingobj.AddNewEmployee(employee.firstname,employee.lastName,employee.username,employee.password,employee.confirmpass);
 // employee_searchobj.searchForEmployeeByName(employee.firstname);
    
@@ -69,6 +69,7 @@ PIMobj.navigatetoPIM();
   });
   it('fails to login due to wrong username',()=>{
     loginpageobj.login("dmin","admin123");
+    
   })
   
  it('[Invalid]should login successfully with invalid Username and password', () => {

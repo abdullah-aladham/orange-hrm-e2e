@@ -19,7 +19,9 @@
     "@eslint/js": "^9.26.0",
     "@faker-js/faker": "^10.0.0",
     "@shelex/cypress-allure-plugin": "^2.41.1",
-    "cypress": "^14.3.3",
+    "axe-core": "^4.11.0",
+    "cypress": "^14.5.4",
+    "cypress-axe": "^1.7.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-plugin-api": "^2.11.2",
     "cypress-repeat": "^2.3.10",
@@ -32,5 +34,8 @@
     "prettier": "^3.5.3",
     "rimraf": "^5.0.5",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@testing-library/cypress": "^10.1.0"
   }
 }
