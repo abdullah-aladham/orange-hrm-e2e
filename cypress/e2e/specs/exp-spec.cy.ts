@@ -10,3 +10,9 @@ it('validLogin', function() {
   cy.get(':nth-child(8) > .oxd-main-menu-item > .oxd-text').should('have.text', 'Dashboard');
   /* ==== End Cypress Studio ==== */
 });
+
+it.only('verifies a link',()=>{
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+
+  cy.verifyLink('OrangeHRM, Inc','http://www.orangehrm.com');
+})

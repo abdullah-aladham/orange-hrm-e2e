@@ -12,7 +12,12 @@ export default defineConfig({
     experimentalStudio:true,
 
     baseUrl: 'https://opensource-demo.orangehrmlive.com',
-    supportFile: "cypress/support/e2e.ts"
+    supportFile: "cypress/support/e2e.ts",
+    // retries:{
+    //   runMode:1,
+    //   openMode:5
+    // }
+    
   },
   
 });
