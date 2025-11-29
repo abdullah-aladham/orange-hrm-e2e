@@ -14,4 +14,5 @@ export default defineConfig({
     baseUrl: 'https://opensource-demo.orangehrmlive.com',
     supportFile: "cypress/support/e2e.ts"
   },
+  
 });

@@ -4,10 +4,11 @@ describe('Entitlements TestSuite',()=>{
     beforeEach(()=>{
        const loginobj:LoginPage=new LoginPage();
     cy.visit('/');
-    cy.fixture('valid_users.json').then((adminuser) => {
- loginobj.login(adminuser[0].username,adminuser[0].password);
+//     cy.fixture('valid_users.json').then((adminuser) => {
+//  loginobj.login(adminuser[0].username,adminuser[0].password);
  
-});
+// });
+cy.login('Admin','admin123');
 })
        const entitlementspage:Entitlements=new Entitlements();
 

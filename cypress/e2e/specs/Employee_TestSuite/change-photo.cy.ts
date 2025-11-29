@@ -7,10 +7,13 @@ describe('change-profile-test-suite',()=>{
         cy.login('Admin','admin123');
         cy.visit('/web/index.php/pim/addEmployee');
         cy.get(".oxd-file-input").selectFile(newpic,{force:true});
+                cy.get('.oxd-input-field-error-message').should('not.be.visible');
+
     })
     it('fails to change due to size',()=>{ const newpic="cypress/fixtures/images/folla.jpg"
         cy.login('Admin','admin123');
         cy.visit('/web/index.php/pim/addEmployee');
         cy.get(".oxd-file-input").selectFile(newpic,{force:true});})
+        cy.get('.oxd-input-field-error-message').should('be.visible');
     
 })

@@ -8,7 +8,8 @@ elements = {
     password:()=>cy.get('.oxd-input').filter('[autocomplete="off"]').eq(1),
     confirmpassword:()=> cy.get('.oxd-input').filter('[autocomplete="off"]').last(),
     save:()=>cy.get('button').contains("Save"),
-    cancel:()=>cy.get('button').contains("Cancel")
+    cancel:()=>cy.get('button').contains("Cancel"),
+    savedSuccessfullyToast:()=>cy.get('.oxd-toast--success')
 }
 visitaddemployeepage(){
     cy.contains('Dashboard').should('be.visible');
@@ -22,6 +23,7 @@ this.elements.username().type(username);
 this.elements.password().type(password);
 this.elements.confirmpassword().type(confirmpass);
 this.elements.save().click();
+this.elements.savedSuccessfullyToast().should('be.visible')
 
 }
 

@@ -24,15 +24,22 @@ buzzes.forEach(post => {
 
  });
 });
-it.only('gives a like to a post',()=>{
+buzzes.forEach(post =>{
+    it('gives a like to a post',()=>{
     adminpageobj.NavigateToBuzz();
 
-  // cy.fixture('buzz.json').then((post)=>{
-         buzzpageobj.createApost(postdata);
- buzzpageobj.likePost(postdata);
-  // })
- 
+//   // cy.fixture('buzz.json').then((post)=>{
+//          buzzpageobj.createApost(postdata);
+  buzzpageobj.likePost(post.postdata);
 })
+})
+ 
+ it('comments on post',()=>{
+   adminpageobj.NavigateToBuzz();
+
+  buzzpageobj.commentOnPost("k;awnfngjlwrnglngrkjlgrn;","Hello From Cypress");
+ })
+// })
 // it('adds 5 buzzes with 5 different languages',()=>{
 // cy.fixture('buzz').then((buzzes)=>{
 //   buzzes.forEach((buzz) => {
@@ -43,14 +50,22 @@ it.only('gives a like to a post',()=>{
 
 //    });
 
+ it('likes a post',()=>{
+       adminpageobj.NavigateToBuzz();
+  buzzpageobj.likePost("k;awnfngjlwrnglngrkjlgrn;");
+
+  })
+
+  it.only('Edits the post',()=>{
+     adminpageobj.NavigateToBuzz();
+  buzzpageobj.editPost("k;awnfngjlwrnglngrkjlgrn;","Cypress Has Edited me");
+  })
  });
 // it('comments on a post',()=>{
 
 // })
 
-//  it('likes a post',()=>{
-
-//  })
+ 
 
 // it('adds 5 likes for a post',()=>{
 

@@ -10,7 +10,8 @@
     "lint:check": "eslint \"cypress/**/*.ts\"",
     "cypress:run:electron": "cypress run --browser electron",
     "cypress:run:chrome": "cypress run --browser electron",
-    "cypress:open:electron": "cypress open --browser electron"
+    "cypress:open:electron": "cypress open --browser electron",
+    "abdullah:open:electron" : "cypress open --browser electron"
   },
   "author": "Malik.Mlitat",
   "license": "ISC",

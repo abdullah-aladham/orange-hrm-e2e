@@ -26,7 +26,7 @@ describe('Add Employee Test Suite', () => {
         addingEmployeeObj.AddNewEmployee(employee.firstname, employee.lastName, employee.username, employee.password, employee.confirmpass);
     })
     it('Fails to add new Employee due to invalid data', () => {
-
+        
     })
     it.only('adds new employee wit api', () => {
         cy.login("Admin", "admin123");
